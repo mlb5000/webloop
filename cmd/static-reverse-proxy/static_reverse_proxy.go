@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/sourcegraph/webloop"
+	"github.com/pasangsherpa/webloop"
 	"log"
 	"net/http"
 	"os"
@@ -37,7 +37,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Notes:\n\n")
 		fmt.Fprintf(os.Stderr, "\tBecause a headless WebKit instance is used, your $DISPLAY must be set. Use\n")
 		fmt.Fprintf(os.Stderr, "\tXvfb if you are running on a machine without an existing X server. See\n")
-		fmt.Fprintf(os.Stderr, "\thttps://sourcegraph.com/github.com/sourcegraph/webloop/readme for more info.\n")
+		fmt.Fprintf(os.Stderr, "\thttps://sourcegraph.com/github.com/pasangsherpa/webloop/readme for more info.\n")
 		fmt.Fprintln(os.Stderr)
 		os.Exit(1)
 	}

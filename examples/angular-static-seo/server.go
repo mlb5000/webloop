@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/sourcegraph/webloop"
+	"github.com/pasangsherpa/webloop"
 	"log"
 	"net/http"
 	"os"
@@ -86,7 +86,7 @@ var page = []byte(`
 
 <hr>
 
-<p><a style="color: #777" href="https://sourcegraph.com/github.com/sourcegraph/webloop/readme">WebLoop example: AngularJS static SEO</a></p>
+<p><a style="color: #777" href="https://sourcegraph.com/github.com/pasangsherpa/webloop/readme">WebLoop example: AngularJS static SEO</a></p>
 
 <pre>
 URL:         {{$location.url()}}
@@ -100,7 +100,7 @@ User-Agent:  {{userAgent}}
   <h2>Angular static SEO example</h2>
   <p>
     This sample <a href="http://angularjs.org">AngularJS</a> application demonstrates how to use
-    <a href="https://sourcegraph.com/github.com/sourcegraph/webloop/readme">WebLoop</a> to
+    <a href="https://sourcegraph.com/github.com/pasangsherpa/webloop/readme">WebLoop</a> to
     generate a static, SEO-friendly site from a single-page AngularJS application.
   </p>
   <hr>

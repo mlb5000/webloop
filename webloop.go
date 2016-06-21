@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"github.com/gotk3/gotk3/glib"
-	"github.com/sourcegraph/go-webkit2/webkit2"
+	"github.com/mlb5000/go-webkit2/webkit2"
 	"github.com/sqs/gojs"
 )
 

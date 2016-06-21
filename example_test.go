@@ -6,7 +6,7 @@ import (
 	"runtime"
 
 	"github.com/gotk3/gotk3/gtk"
-	"github.com/pasangsherpa/webloop"
+	"github.com/mlb5000/webloop"
 )
 
 func Example() {

@@ -2,6 +2,7 @@ package webloop
 
 import (
 	"errors"
+	"time"
 
 	"github.com/gotk3/gotk3/glib"
 	"github.com/mlb5000/go-webkit2/webkit2"
@@ -34,11 +35,13 @@ func (c *Context) NewView() *View {
 				// If we're here, then the load must not have failed, because
 				// otherwise we would've disconnected this handler in the
 				// load-failed signal handler.
+				v.lastLoadErr = nil
 				v.load <- struct{}{}
 			}
 		})
 		webView.Connect("load-failed", func() {
 			v.lastLoadErr = ErrLoadFailed
+			v.load <- struct{}{}
 			webView.HandlerDisconnect(loadChangedHandler)
 		})
 		view <- v
@@ -72,8 +75,19 @@ func (v *View) Open(url string) {
 
 // Wait waits for the current page to finish loading.
 func (v *View) Wait() error {
-	<-v.load
-	return v.lastLoadErr
+	timeout := make(chan bool, 1)
+	go func() {
+		time.Sleep(10 * time.Second)
+		timeout <- true
+	}()
+
+	select {
+	case <-v.load:
+		return v.lastLoadErr
+	case <-timeout:
+		// the read from ch has timed out
+		return errors.New("Timed out waiting for the page to load")
+	}
 }
 
 // URI returns the URI of the current resource in the view.
